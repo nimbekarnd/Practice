@@ -10,7 +10,8 @@ problems/
     <problem-slug>/
       problem.md        problem statement, examples, constraints, notes
       solution.py        Python solution
-      solution.cpp        C++ solution
+      solution.cpp        C++ solution (LeetCode-style, no main())
+      run.cpp             local scratch runner, includes solution.cpp + a main()
       test_solution.py     pytest tests
   _template/           starter files for a new problem
 ```
@@ -34,8 +35,13 @@ Python (from a problem folder):
 python -m pytest
 ```
 
-C++ (compile and run manually, e.g.):
+C++: `solution.cpp` has no `main()` (LeetCode's judge supplies its own
+driver), so it won't run standalone. Use `run.cpp` instead — it
+`#include`s `solution.cpp` and has a `main()` with sample cases:
 
 ```
-g++ -std=c++17 -o /tmp/sol solution.cpp && /tmp/sol
+g++ -std=c++17 -o /tmp/run run.cpp && /tmp/run
 ```
+
+Edit the sample cases in `run.cpp` as needed. Only `solution.cpp` gets
+pasted into LeetCode — `run.cpp` is a local-only scratch file.
