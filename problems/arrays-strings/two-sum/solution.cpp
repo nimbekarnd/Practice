@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <unordered_map>
+#include <iostream>
 using namespace std;
 
 class Solution {
@@ -13,6 +15,6 @@ public:
             }
             seen[nums[i]] = i;
         }
-        throw runtime_error("no solution found");
+        return {};
     }
 };
